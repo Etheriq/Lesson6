@@ -1,0 +1,7 @@
+parameters:
+#    etheriq_lesson6.example.class: Etheriq\Lesson6Bundle\Example
+
+services:
+#    etheriq_lesson6.example:
+#        class: %etheriq_lesson6.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,3 @@
+etheriq_lesson6_homepage:
+    pattern:  /
+    defaults: { _controller: EtheriqLesson6Bundle:Default:index }
