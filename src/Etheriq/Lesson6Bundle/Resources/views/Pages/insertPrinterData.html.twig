@@ -1,0 +1,11 @@
+{% extends 'EtheriqLesson6Bundle:Default:homePage.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+
+    <div class="well col-md-8">
+        В таблицу printer вставлена информация об принтере {{ printerName }}, id={{ idPrinter }} также он был
+        связан с картриджем {{ cartridgeName }} id={{ idCartridge }}
+    </div>
+
+{% endblock body %}
