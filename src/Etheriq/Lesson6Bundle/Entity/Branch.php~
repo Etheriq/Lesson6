@@ -1,0 +1,56 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * File: Branch.php
+ * User: Yuriy Tarnavskiy
+ * Date: 15.11.13
+ * Time: 13:16
+ * To change this template use File | Settings | File Templates.
+ */
+
+namespace Etheriq\Lesson6Bundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * Class Branch
+ * @package Etheriq\Lesson6Bundle\Entity
+ *
+ *
+ * @ORM\Entity
+ * @ORM\table(name="branch")
+ */
+class Branch
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=200)
+     */
+    protected $titleBranch;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Topic", mappedBy="branch")
+     */
+    protected $topics;
+
+    /**
+     * @var
+     *
+     * @ORM\OneToOne(targetEntity="Branch", mappedBy="branch")
+     */
+    protected $parentBranch;
+
+    public function __construct()
+    {
+        $this->topics = new ArrayCollection();
+
+    }
+
+} 

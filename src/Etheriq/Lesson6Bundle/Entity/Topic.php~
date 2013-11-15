@@ -1,0 +1,57 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * File: Topic.php
+ * User: Yuriy Tarnavskiy
+ * Date: 15.11.13
+ * Time: 12:43
+ * To change this template use File | Settings | File Templates.
+ */
+
+namespace Etheriq\Lesson6Bundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Class Topic
+ * @package Etheriq\Lesson6Bundle\Entity
+ *
+ * @ORM\Entity
+ * @ORM\Table(name="topic")
+ */
+class Topic
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=250)
+     */
+    protected $titleTopic;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    protected $dateTopic;
+
+    /**
+     * @ORM\Column(type="string", length=150)
+     */
+    protected $autorTopic;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $textTopic;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Branch", mappedBy="topics")
+     * @ORM\Column(name="branch_id")
+     */
+    protected $topics;
+
+} 
