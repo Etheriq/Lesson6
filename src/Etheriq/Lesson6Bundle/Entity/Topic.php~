@@ -49,9 +49,16 @@ class Topic
     protected $textTopic;
 
     /**
-     * @ORM\OneToMany(targetEntity="Branch", mappedBy="topics")
-     * @ORM\Column(name="branch_id")
+     * @ORM\ManyToOne(targetEntity="Branch", inversedBy="topics")
      */
-    protected $topics;
+    protected $topic;
 
-} 
+    /**
+     * @ORM\OneToOne(targetEntity="Branch")
+     * @ORM\JoinColumn(name="branch_id", referencedColumnName="id")
+     */
+    protected $branch;
+
+
+
+}

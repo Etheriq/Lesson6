@@ -49,10 +49,15 @@ class Topic
     protected $textTopic;
 
     /**
-     * @ORM\OneToMany(targetEntity="Branch", mappedBy="topics")
-     * @ORM\Column(name="branch_id")
+     * @ORM\ManyToOne(targetEntity="Branch", inversedBy="topics")
      */
-    protected $topics;
+    protected $topic;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Branch")
+     * @ORM\JoinColumn(name="branch_id", referencedColumnName="id")
+     */
+    protected $branch;
 
     /**
      * Get id
@@ -157,25 +162,48 @@ class Topic
     }
 
     /**
-     * Set topics
+     * Set topic
      *
-     * @param string $topics
+     * @param \Etheriq\Lesson6Bundle\Entity\Branch $topic
      * @return Topic
      */
-    public function setTopics($topics)
+    public function setTopic(\Etheriq\Lesson6Bundle\Entity\Branch $topic = null)
     {
-        $this->topics = $topics;
+        $this->topic = $topic;
     
         return $this;
     }
 
     /**
-     * Get topics
+     * Get topic
      *
-     * @return string 
+     * @return \Etheriq\Lesson6Bundle\Entity\Branch 
      */
-    public function getTopics()
+    public function getTopic()
     {
-        return $this->topics;
+        return $this->topic;
+    }
+
+    /**
+     * Set branch
+     *
+     * @param \Etheriq\Lesson6Bundle\Entity\Branch $branch
+     * @return Topic
+     */
+    public function setBranch(\Etheriq\Lesson6Bundle\Entity\Branch $branch = null)
+    {
+        $this->branch = $branch;
+    
+        return $this;
+    }
+
+    /**
+     * Get branch
+     *
+     * @return \Etheriq\Lesson6Bundle\Entity\Branch 
+     */
+    public function getBranch()
+    {
+        return $this->branch;
     }
 }

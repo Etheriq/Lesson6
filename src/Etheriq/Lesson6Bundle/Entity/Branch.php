@@ -36,21 +36,19 @@ class Branch
     protected $titleBranch;
 
     /**
-     * @ORM\OneToMany(targetEntity="Topic", mappedBy="branch")
-     */
-    protected $topics;
-
-    /**
-     * @var
-     *
-     * @ORM\OneToOne(targetEntity="Branch", mappedBy="branch")
+     * @ORM\OneToOne(targetEntity="Branch")
+     * @ORM\JoinColumn(name="branch_id", referencedColumnName="id")
      */
     protected $parentBranch;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Topic", mappedBy="topic")
+     */
+    protected $topics;
 
     public function __construct()
     {
         $this->topics = new ArrayCollection();
-
     }
 
     /**
@@ -87,6 +85,29 @@ class Branch
     }
 
     /**
+     * Set parentBranch
+     *
+     * @param \Etheriq\Lesson6Bundle\Entity\Branch $parentBranch
+     * @return Branch
+     */
+    public function setParentBranch(\Etheriq\Lesson6Bundle\Entity\Branch $parentBranch = null)
+    {
+        $this->parentBranch = $parentBranch;
+    
+        return $this;
+    }
+
+    /**
+     * Get parentBranch
+     *
+     * @return \Etheriq\Lesson6Bundle\Entity\Branch 
+     */
+    public function getParentBranch()
+    {
+        return $this->parentBranch;
+    }
+
+    /**
      * Add topics
      *
      * @param \Etheriq\Lesson6Bundle\Entity\Topic $topics
@@ -117,28 +138,5 @@ class Branch
     public function getTopics()
     {
         return $this->topics;
-    }
-
-    /**
-     * Set parentBranch
-     *
-     * @param \Etheriq\Lesson6Bundle\Entity\Branch $parentBranch
-     * @return Branch
-     */
-    public function setParentBranch(\Etheriq\Lesson6Bundle\Entity\Branch $parentBranch = null)
-    {
-        $this->parentBranch = $parentBranch;
-    
-        return $this;
-    }
-
-    /**
-     * Get parentBranch
-     *
-     * @return \Etheriq\Lesson6Bundle\Entity\Branch 
-     */
-    public function getParentBranch()
-    {
-        return $this->parentBranch;
     }
 }

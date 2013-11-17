@@ -36,21 +36,26 @@ class Branch
     protected $titleBranch;
 
     /**
-     * @ORM\OneToMany(targetEntity="Topic", mappedBy="branch")
-     */
-    protected $topics;
-
-    /**
-     * @var
-     *
-     * @ORM\OneToOne(targetEntity="Branch", mappedBy="branch")
+     * @ORM\OneToOne(targetEntity="Branch")
+     * @ORM\JoinColumn(name="branch_id", referencedColumnName="id")
      */
     protected $parentBranch;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Topic", mappedBy="topic")
+     */
+    protected $topics;
 
     public function __construct()
     {
         $this->topics = new ArrayCollection();
-
     }
 
-} 
+
+
+
+
+
+
+
+}
