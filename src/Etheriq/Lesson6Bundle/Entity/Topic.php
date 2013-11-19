@@ -48,16 +48,15 @@ class Topic
      */
     protected $textTopic;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Branch", inversedBy="topics")
-     */
-    protected $topic;
 
-    /**
-     * @ORM\OneToOne(targetEntity="Branch")
+     /**
+     * @ORM\ManyToOne(targetEntity="Branch", inversedBy="topics")
      * @ORM\JoinColumn(name="branch_id", referencedColumnName="id")
      */
     protected $branch;
+
+
+
 
     /**
      * Get id
@@ -159,29 +158,6 @@ class Topic
     public function getTextTopic()
     {
         return $this->textTopic;
-    }
-
-    /**
-     * Set topic
-     *
-     * @param \Etheriq\Lesson6Bundle\Entity\Branch $topic
-     * @return Topic
-     */
-    public function setTopic(\Etheriq\Lesson6Bundle\Entity\Branch $topic = null)
-    {
-        $this->topic = $topic;
-    
-        return $this;
-    }
-
-    /**
-     * Get topic
-     *
-     * @return \Etheriq\Lesson6Bundle\Entity\Branch 
-     */
-    public function getTopic()
-    {
-        return $this->topic;
     }
 
     /**

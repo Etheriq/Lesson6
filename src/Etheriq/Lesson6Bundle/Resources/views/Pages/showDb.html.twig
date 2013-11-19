@@ -1,0 +1,22 @@
+{% extends 'EtheriqLesson6Bundle:Default:homePage.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+
+    <div class="well col-md-8">
+
+        {% for item in data %}
+
+           {{ item.titleBranch }}
+
+            {% for topik in item.getTopics() %}
+                <ul>
+                <li>{{ topik.titleTopic }}</li>
+                </ul>
+            {% endfor %}
+           {#  {{ render(controller('EtheriqLesson6Bundle:TestDb:showTopicById', { 'id': item.id } )) }}  #}
+         {% endfor %}
+
+    </div>
+
+{% endblock body %}

@@ -5,3 +5,19 @@ etheriq_lesson6_homepage:
 etheriq_lesson6_insert_printer:
     pattern:  /ins
     defaults: { _controller: EtheriqLesson6Bundle:Printer:insert }
+
+etheriq_lesson6_testDb:
+    pattern:  /test
+    defaults: { _controller: EtheriqLesson6Bundle:TestDb:test }
+
+etheriq_lesson6_showDb:
+    pattern:  /showDb
+    defaults: { _controller: EtheriqLesson6Bundle:TestDb:show }
+
+etheriq_lesson6_showDb_byId:
+    pattern:  /showTopic/{id}
+    defaults: { _controller: EtheriqLesson6Bundle:TestDb:showTopicId }
+
+test1:
+    pattern:  /tst1
+    defaults: { _controller: EtheriqLesson6Bundle:TestDb:showTest }

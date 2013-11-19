@@ -14,12 +14,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Class Branch
- * @package Etheriq\Lesson6Bundle\Entity
- *
  *
  * @ORM\Entity
- * @ORM\table(name="branch")
+ * @ORM\Table(name="branch")
  */
 class Branch
 {
@@ -36,21 +33,25 @@ class Branch
     protected $titleBranch;
 
     /**
-     * @ORM\OneToOne(targetEntity="Branch")
-     * @ORM\JoinColumn(name="branch_id", referencedColumnName="id")
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $parentBranch;
 
     /**
-     * @ORM\OneToMany(targetEntity="Topic", mappedBy="topic")
+     * @ORM\OneToMany(targetEntity="Topic", mappedBy="branch")
      */
     protected $topics;
 
+
+    
+    /**
+     * Constructor
+     */
     public function __construct()
     {
-        $this->topics = new ArrayCollection();
+        $this->topics = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
+    
     /**
      * Get id
      *
@@ -87,10 +88,10 @@ class Branch
     /**
      * Set parentBranch
      *
-     * @param \Etheriq\Lesson6Bundle\Entity\Branch $parentBranch
+     * @param integer $parentBranch
      * @return Branch
      */
-    public function setParentBranch(\Etheriq\Lesson6Bundle\Entity\Branch $parentBranch = null)
+    public function setParentBranch($parentBranch)
     {
         $this->parentBranch = $parentBranch;
     
@@ -100,7 +101,7 @@ class Branch
     /**
      * Get parentBranch
      *
-     * @return \Etheriq\Lesson6Bundle\Entity\Branch 
+     * @return integer 
      */
     public function getParentBranch()
     {

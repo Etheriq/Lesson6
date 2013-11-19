@@ -1,0 +1,17 @@
+{% extends 'EtheriqLesson6Bundle:Default:homePage.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+
+    <div class="well col-md-8">
+        <p><a href={{ path('etheriq_lesson6_showDb') }} >Назад</a></p>
+        {% for itemOneTopic in topic %}
+            <p>Tile: {{ itemOneTopic.titleTopic }} <br>
+            Autor: {{ itemOneTopic.autorTopic }} <br>
+            Date: {{ itemOneTopic.dateTopic|date("d.m.Y") }} <br>
+            Text: {{ itemOneTopic.textTopic }}</p>
+        {% endfor %}
+
+    </div>
+
+{% endblock body %}

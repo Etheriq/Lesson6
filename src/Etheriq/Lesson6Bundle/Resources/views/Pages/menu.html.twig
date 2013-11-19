@@ -17,11 +17,11 @@
                 <ul class="dropdown-menu">
                     <li><a href="#">Все данные</a></li>
                     <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
+                    <li><a href="{{ path('test1') }}">Test 1</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
+                    <li><a href="{{ path('etheriq_lesson6_showDb') }}">Вывсти содержимое БД</a></li>
                     <li class="divider"></li>
-                    <li><a href="{{ path('etheriq_lesson6_insert_printer') }}" title="Внести данные о принтере в БД">Подготовить БД</a></li>
+                    <li><a href="{{ path('etheriq_lesson6_testDb') }}" title="Внести данные о принтере в БД">Подготовить БД</a></li>
                 </ul>
             </li>
         </ul>
