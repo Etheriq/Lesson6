@@ -17,3 +17,7 @@ etheriq_lesson6_showBranch_byId:
 etheriq_lesson6_loadDataFromModel:
     pattern:  /loadFromModel
     defaults: { _controller: EtheriqLesson6Bundle:MainDb:loadFromModel }
+
+etheriq_lesson6_loadDataFromFixture:
+    pattern:  /loadFromFixture
+    defaults: { _controller: EtheriqLesson6Bundle:MainDb:loadFixture }

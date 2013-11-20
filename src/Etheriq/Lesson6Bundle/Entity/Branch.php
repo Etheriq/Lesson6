@@ -40,19 +40,13 @@ class Branch
     protected $topics;
 
     /**
-     * @ORM\OneToMany(targetEntity="Branch", mappedBy="parent")
+     * @ORM\Column(type="integer", nullable=true)
      */
-    protected  $childrens;
+    protected $parent;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Branch", inversedBy="childrens")
-     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
-     */
-    protected  $parent;
 
     public function __construct()
     {
-        $this->childrens = new ArrayCollection();
         $this->topics = new ArrayCollection();
     }
 
@@ -90,6 +84,29 @@ class Branch
     }
 
     /**
+     * Set parent
+     *
+     * @param integer $parent
+     * @return Branch
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+    
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return integer 
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
      * Add topics
      *
      * @param \Etheriq\Lesson6Bundle\Entity\Topic $topics
@@ -120,61 +137,5 @@ class Branch
     public function getTopics()
     {
         return $this->topics;
-    }
-
-    /**
-     * Add childrens
-     *
-     * @param \Etheriq\Lesson6Bundle\Entity\Branch $childrens
-     * @return Branch
-     */
-    public function addChildren(\Etheriq\Lesson6Bundle\Entity\Branch $childrens)
-    {
-        $this->childrens[] = $childrens;
-    
-        return $this;
-    }
-
-    /**
-     * Remove childrens
-     *
-     * @param \Etheriq\Lesson6Bundle\Entity\Branch $childrens
-     */
-    public function removeChildren(\Etheriq\Lesson6Bundle\Entity\Branch $childrens)
-    {
-        $this->childrens->removeElement($childrens);
-    }
-
-    /**
-     * Get childrens
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getChildrens()
-    {
-        return $this->childrens;
-    }
-
-    /**
-     * Set parent
-     *
-     * @param \Etheriq\Lesson6Bundle\Entity\Branch $parent
-     * @return Branch
-     */
-    public function setParent(\Etheriq\Lesson6Bundle\Entity\Branch $parent = null)
-    {
-        $this->parent = $parent;
-    
-        return $this;
-    }
-
-    /**
-     * Get parent
-     *
-     * @return \Etheriq\Lesson6Bundle\Entity\Branch
-     */
-    public function getParent()
-    {
-        return $this->parent;
     }
 }

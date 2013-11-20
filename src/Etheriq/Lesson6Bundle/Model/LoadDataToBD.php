@@ -29,18 +29,15 @@ class LoadDataToBD
 
         $apt = new Branch();
         $apt->setTitleBranch('apt');
-        $apt->setParent($etc);
 
         $sourcesListD = new Branch();
         $sourcesListD->setTitleBranch('sources.list.d');
-        $sourcesListD->setParent($apt);
 
         $sys = new Branch();
         $sys->setParent(null);
         $sys->setTitleBranch('sys');
 
         $kernel = new Branch();
-        $kernel->setParent($sys);
         $kernel->setTitleBranch('kernel');
 
         $var = new Branch();
@@ -48,7 +45,6 @@ class LoadDataToBD
         $var->setTitleBranch('var');
 
         $www = new Branch();
-        $www->setParent($var);
         $www->setTitleBranch('www');
 
         //  topics
@@ -110,6 +106,18 @@ class LoadDataToBD
         $om->persist($notes);
         $om->persist($vmCoreInfo);
         $om->persist($indexHtml);
+
+        $om->flush();
+
+        $apt->setParent($etc->getId());
+        $sourcesListD->setParent($apt->getId());
+        $kernel->setParent($sys->getId());
+        $www->setParent($var->getId());
+
+        $om->persist($apt);
+        $om->persist($sourcesListD);
+        $om->persist($kernel);
+        $om->persist($www);
 
         $om->flush();
 

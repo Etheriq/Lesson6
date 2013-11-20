@@ -14,6 +14,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Etheriq\Lesson6Bundle\Model\LoadDataToBD;
+use Doctrine\Common\DataFixtures\Loader;
+use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
+use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 
 class MainDbController extends Controller
 {
@@ -29,6 +32,7 @@ class MainDbController extends Controller
 
         return $this->render('EtheriqLesson6Bundle:Pages:showDb.html.twig', array('branch' => $currentBranch));
     }
+
     public function showAllBranchAction()
     {
         $branch = $this->getDoctrine()->getRepository('EtheriqLesson6Bundle:Branch')->findAll();
@@ -64,5 +68,18 @@ class MainDbController extends Controller
         $load->initBD($this->getDoctrine()->getManager());
 
         return new RedirectResponse($this->generateUrl('etheriq_lesson6_showDb'));
+    }
+
+    public function loadFixtureAction()
+    {
+            $loader = new Loader();
+            $loader->loadFromDirectory(__DIR__ . '/../DataFixtures/ORM');
+
+            $purger = new ORMPurger();
+            $executor = new ORMExecutor($this->getDoctrine()->getManager(), $purger);
+            $executor->execute($loader->getFixtures());
+
+
+        return new Response('loaded');
     }
 }
