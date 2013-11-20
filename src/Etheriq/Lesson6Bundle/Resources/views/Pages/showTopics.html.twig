@@ -1,0 +1,7 @@
+{% for itemTopic in topic %}
+    <ul>
+        <li>
+            <a href="{{ path('etheriq_lesson6_showDb_byId', {'id': itemTopic.id}) }}" >{{ itemTopic.titleTopic }}</a>
+        </li>
+    </ul>
+{% endfor %}

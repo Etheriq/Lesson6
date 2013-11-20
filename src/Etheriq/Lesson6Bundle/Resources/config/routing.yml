@@ -1,3 +1,19 @@
 etheriq_lesson6_homepage:
     pattern:  /
     defaults: { _controller: EtheriqLesson6Bundle:Default:index }
+
+etheriq_lesson6_showDb:
+    pattern:  /showAllBranch
+    defaults: { _controller: EtheriqLesson6Bundle:MainDb:showAllBranch }
+
+etheriq_lesson6_showDb_byId:
+    pattern:  /showTopic/{id}
+    defaults: { _controller: EtheriqLesson6Bundle:MainDb:showTopicId }
+
+etheriq_lesson6_showBranch_byId:
+    pattern:  /showBranch/{id}
+    defaults: { _controller: EtheriqLesson6Bundle:MainDb:showBranchId }
+
+etheriq_lesson6_loadDataFromModel:
+    pattern:  /loadFromModel
+    defaults: { _controller: EtheriqLesson6Bundle:MainDb:loadFromModel }

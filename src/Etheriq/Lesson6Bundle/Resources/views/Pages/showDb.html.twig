@@ -1,0 +1,39 @@
+{% extends 'EtheriqLesson6Bundle:Default:homePage.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+
+    <div class="well col-md-8">
+
+        {% if branch is defined %}
+            <a href="{{ path('etheriq_lesson6_showDb') }}">Назад</a>  <br><br>
+            <b>Ветвь:</b> {{ branch.getTitleBranch() }} <br>
+            {% if branch.getTopics()|length > 0 %}
+                <br><u>Список тем:</u><br><br>
+                    {% for topics in branch.getTopics() %}
+                        <ul>
+                        <li>
+                            <a href="{{ path('etheriq_lesson6_showDb_byId', {'id': topics.id}) }}" >{{ topics.titleTopic }}</a>
+                        </li>
+                        </ul>
+                    {% endfor %}
+            {% else %}
+                <br><p>В данной ветви тем не обнаружено.</p>
+            {% endif %}
+        {% endif %}
+
+        {% if data is defined %}
+            {% for item in data %}
+
+               {%  if item.parent is null %}
+                   <br>
+               {% endif %}
+              <a href=" {{ path('etheriq_lesson6_showBranch_byId', {'id': item.id}) }} ">{{ item.titleBranch }}</a> ({{ item.getTopics()|length }}) /
+
+               {#  {{ render(controller('EtheriqLesson6Bundle:TestDb:showTopicById', { 'id': item.id } )) }}  #}
+             {% endfor %}
+         {% endif %}
+
+    </div>
+
+{% endblock body %}
