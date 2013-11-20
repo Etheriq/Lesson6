@@ -14,6 +14,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Etheriq\Lesson6Bundle\Entity\Branch;
+use Etheriq\Lesson6Bundle\Entity\Topic;
 
 class LoadBranchData extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -24,31 +25,38 @@ class LoadBranchData extends AbstractFixture implements OrderedFixtureInterface
         $branchData = array(
             array(
                 'titleBranch' => 'etc',
-                'parent' =>null
+                'parent' =>null,
+                'idt' => 1
             ),
             array(
                 'titleBranch' => 'apt',
-                'parent' =>1
+                'parent' =>1,
+                'idt' => 2
             ),
             array(
                 'titleBranch' => 'sources.list.d',
-                'parent' =>2
+                'parent' =>2,
+                'idt' => 3
             ),
             array(
                 'titleBranch' => 'sys',
-                'parent' =>null
+                'parent' =>null,
+                'idt' => 4
             ),
             array(
                 'titleBranch' => 'kernel',
-                'parent' =>4
+                'parent' =>4,
+                'idt' => 5
             ),
             array(
                 'titleBranch' => 'var',
-                'parent' =>null
+                'parent' =>null,
+                'idt' => 6
             ),
             array(
                 'titleBranch' => 'www',
-                'parent' =>6
+                'parent' =>6,
+                'idt' => 7
             )
         );
 
@@ -57,10 +65,11 @@ class LoadBranchData extends AbstractFixture implements OrderedFixtureInterface
             $branch = new Branch();
 
             $branch->setTitleBranch($branchItem['titleBranch']);
-            //$branch->setParent($branchItem['parent']);
+            $branch->setParent($branchItem['parent']);
+            $branch->setIdBranchTmp($branchItem['idt']);
 
             $manager->persist($branch);
-            //$this->setReference('topics', $branch);
+            $this->setReference('idt', $branch);
         }
 
         $manager->flush();

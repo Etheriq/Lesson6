@@ -17,7 +17,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  *
  * @ORM\Entity
- * @ORM\Table(name="branch2")
+ * @ORM\Table(name="branch")
  */
 class Branch
 {
@@ -34,6 +34,13 @@ class Branch
      */
     protected $titleBranch;
 
+    /**
+     * @var
+     *
+     * @ORM\Column(type="integer")
+     */
+    protected $idBranchTmp;
+    
     /**
      * @ORM\OneToMany(targetEntity="Topic", mappedBy="branch")
      */
@@ -137,5 +144,28 @@ class Branch
     public function getTopics()
     {
         return $this->topics;
+    }
+
+    /**
+     * Set idBranchTmp
+     *
+     * @param integer $idBranchTmp
+     * @return Branch
+     */
+    public function setIdBranchTmp($idBranchTmp)
+    {
+        $this->idBranchTmp = $idBranchTmp;
+    
+        return $this;
+    }
+
+    /**
+     * Get idBranchTmp
+     *
+     * @return integer 
+     */
+    public function getIdBranchTmp()
+    {
+        return $this->idBranchTmp;
     }
 }

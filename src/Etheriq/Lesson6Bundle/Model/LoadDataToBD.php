@@ -26,26 +26,33 @@ class LoadDataToBD
         $etc = new Branch();
         $etc->setTitleBranch('etc');
         $etc->setParent(null);
+        $etc->setIdBranchTmp(1);
 
         $apt = new Branch();
         $apt->setTitleBranch('apt');
+        $apt->setIdBranchTmp(2);
 
         $sourcesListD = new Branch();
         $sourcesListD->setTitleBranch('sources.list.d');
+        $sourcesListD->setIdBranchTmp(3);
 
         $sys = new Branch();
         $sys->setParent(null);
         $sys->setTitleBranch('sys');
+        $sys->setIdBranchTmp(4);
 
         $kernel = new Branch();
         $kernel->setTitleBranch('kernel');
+        $kernel->setIdBranchTmp(5);
 
         $var = new Branch();
         $var->setParent(null);
         $var->setTitleBranch('var');
+        $var->setIdBranchTmp(6);
 
         $www = new Branch();
         $www->setTitleBranch('www');
+        $www->setIdBranchTmp(7);
 
         //  topics
         $resolfConf = new Topic();

@@ -24,42 +24,36 @@ class LoadTopicData extends AbstractFixture implements OrderedFixtureInterface
         $topicData = array(
             array(
                 'title' => 'resolf.conf',
-                'data' => '2013-11-03',
                 'autor' => 'root',
                 'text' => 'text',
                 'branch' => 1
             ),
             array(
                 'title' => 'sources.list',
-                'data' => '2013-10-12',
                 'autor' => 'root',
                 'text' => 'text',
                 'branch' => 2
             ),
             array(
                 'title' => 'sources.list.save',
-                'data' => '2013-10-26',
                 'autor' => 'xeon',
                 'text' => 'text',
                 'branch' => 2
             ),
             array(
                 'title' => 'notes',
-                'data' => '2013-11-19',
                 'autor' => 'root',
                 'text' => 'text',
                 'branch' => 5
             ),
             array(
                 'title' => 'vmcoreinfo',
-                'data' => '2013-09-03',
                 'autor' => 'root',
                 'text' => 'text',
                 'branch' => 5
             ),
             array(
                 'title' => 'index.html',
-                'data' => '2013-11-11',
                 'autor' => 'xeon',
                 'text' => '<b> Hello Word </b>',
                 'branch' => 7
@@ -71,13 +65,15 @@ class LoadTopicData extends AbstractFixture implements OrderedFixtureInterface
             $topic = new Topic();
 
             $topic->setTitleTopic($topicItem['title']);
-            $topic->setDateTopic($topicItem['data']);
+            $dateTopic = new \DateTime();
+            $dateTopic->setDate(mt_rand(2000, 2012), mt_rand(1,12), mt_rand(1,30));
+            $topic->setDateTopic($dateTopic);
             $topic->setAutorTopic($topicItem['autor']);
             $topic->setTextTopic($topicItem['text']);
-            //$topic->setBranch($topicItem['branch']);
+            $topic->setBranch($this->getReference('idt'));
 
             $manager->persist($topic);
-            //$this->setReference('branch_id', $topic);
+            //$this->setReference('branch', $topic);
         }
 
         $manager->flush();

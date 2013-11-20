@@ -79,7 +79,6 @@ class MainDbController extends Controller
             $executor = new ORMExecutor($this->getDoctrine()->getManager(), $purger);
             $executor->execute($loader->getFixtures());
 
-
-        return new Response('loaded');
+        return new RedirectResponse($this->generateUrl('etheriq_lesson6_showDb'));
     }
 }

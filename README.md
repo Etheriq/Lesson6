@@ -8,7 +8,8 @@ composer update
 doctrine:database:create
 php app/console generate:doctrine:entities Etheriq
 php app/console doctrine:schema:update --force
-Для заполнения БД данными выберите в меню: Doctrine > Внести данные в БД (через модель)
+Для заполнения БД данными выберите в меню: Doctrine > Внести данные в БД (через модель) или php app/console doctrine:fixtures:load
+
 Потом выберите в меню: Doctrine > Вывести содержимое БД
 
 
