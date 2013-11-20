@@ -3,5 +3,18 @@
 {% block body %}
 
         {% include ('EtheriqLesson6Bundle:Pages:menu.html.twig') %}
+    {% block info %}
+        <p><h3><b>Описание:</b></h3></p>
+        <strong>Урок №6 Изучение ORM Doctrine</strong><br><br>
+        Подготовка к работе:
+        <ol>
+            <li>composer update</li>
+            <li>doctrine:database:create</li>
+            <li>php app/console generate:doctrine:entities Etheriq</li>
+            <li>php app/console doctrine:schema:update --force</li>
+            <li>Для заполнения БД данными выберите в меню: Doctrine > Внести данные в БД (через модель)</li>
+            <li>Потом выберите в меню: Doctrine > Вывести содержимое БД</li>
+        </ol>
 
+    {% endblock info %}
 {% endblock body %}

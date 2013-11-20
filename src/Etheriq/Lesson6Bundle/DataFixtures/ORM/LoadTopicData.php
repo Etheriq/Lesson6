@@ -74,7 +74,7 @@ class LoadTopicData extends AbstractFixture implements OrderedFixtureInterface
             $topic->setDateTopic($topicItem['data']);
             $topic->setAutorTopic($topicItem['autor']);
             $topic->setTextTopic($topicItem['text']);
-            //$topic->setBranch($this->getReference('topics'));
+            //$topic->setBranch($topicItem['branch']);
 
             $manager->persist($topic);
             //$this->setReference('branch_id', $topic);
