@@ -2,22 +2,18 @@ etheriq_lesson6_homepage:
     pattern:  /
     defaults: { _controller: EtheriqLesson6Bundle:Default:index }
 
-etheriq_lesson6_insert_printer:
-    pattern:  /ins
-    defaults: { _controller: EtheriqLesson6Bundle:Printer:insert }
-
-etheriq_lesson6_testDb:
-    pattern:  /test
-    defaults: { _controller: EtheriqLesson6Bundle:TestDb:test }
-
 etheriq_lesson6_showDb:
-    pattern:  /showDb
-    defaults: { _controller: EtheriqLesson6Bundle:TestDb:show }
+    pattern:  /showAllBranch
+    defaults: { _controller: EtheriqLesson6Bundle:MainDb:showAllBranch }
 
 etheriq_lesson6_showDb_byId:
     pattern:  /showTopic/{id}
-    defaults: { _controller: EtheriqLesson6Bundle:TestDb:showTopicId }
+    defaults: { _controller: EtheriqLesson6Bundle:MainDb:showTopicId }
 
-test1:
-    pattern:  /tst1
-    defaults: { _controller: EtheriqLesson6Bundle:TestDb:showTest }
+etheriq_lesson6_showBranch_byId:
+    pattern:  /showBranch/{id}
+    defaults: { _controller: EtheriqLesson6Bundle:MainDb:showBranchId }
+
+etheriq_lesson6_loadDataFromModel:
+    pattern:  /loadFromModel
+    defaults: { _controller: EtheriqLesson6Bundle:MainDb:loadFromModel }

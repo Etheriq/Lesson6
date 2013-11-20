@@ -4,14 +4,12 @@
     {{ parent() }}
 
     <div class="well col-md-8">
-        <p><a href={{ path('etheriq_lesson6_showDb') }} >Назад</a></p>
-        {% for itemOneTopic in topic %}
-            <p>Tile: {{ itemOneTopic.titleTopic }} <br>
-            Autor: {{ itemOneTopic.autorTopic }} <br>
-            Date: {{ itemOneTopic.dateTopic|date("d.m.Y") }} <br>
-            Text: {{ itemOneTopic.textTopic }}</p>
-        {% endfor %}
-
+        <p><a href="{{ path('etheriq_lesson6_showDb') }}">Назад</a></p>
+        <center>Подробности о теме:</center>
+            <p>Tile: {{ topic.titleTopic }} <br>
+            Autor: {{ topic.autorTopic }} <br>
+            Date: {{ topic.dateTopic|date("d.m.Y") }} <br>
+            Text: {{ topic.textTopic }}</p>
     </div>
 
 {% endblock body %}

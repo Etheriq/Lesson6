@@ -19,7 +19,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Entity
  * @ORM\Table(name="branch2")
  */
-class Branch
+class Branch2
 {
 
     /**
@@ -40,12 +40,12 @@ class Branch
     protected $topics;
 
     /**
-     * @ORM\OneToMany(targetEntity="Branch", mappedBy="parent")
+     * @ORM\OneToMany(targetEntity="Branch2", mappedBy="parent")
      */
     protected  $childrens;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Branch", inversedBy="childrens")
+     * @ORM\ManyToOne(targetEntity="Branch2", inversedBy="childrens")
      * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      */
     protected  $parent;
@@ -55,6 +55,8 @@ class Branch
         $this->childrens = new ArrayCollection();
         $this->topics = new ArrayCollection();
     }
+
+
 
     /**
      * Get id
@@ -70,7 +72,7 @@ class Branch
      * Set titleBranch
      *
      * @param string $titleBranch
-     * @return Branch
+     * @return Branch2
      */
     public function setTitleBranch($titleBranch)
     {
@@ -93,7 +95,7 @@ class Branch
      * Add topics
      *
      * @param \Etheriq\Lesson6Bundle\Entity\Topic $topics
-     * @return Branch
+     * @return Branch2
      */
     public function addTopic(\Etheriq\Lesson6Bundle\Entity\Topic $topics)
     {
@@ -125,10 +127,10 @@ class Branch
     /**
      * Add childrens
      *
-     * @param \Etheriq\Lesson6Bundle\Entity\Branch $childrens
-     * @return Branch
+     * @param \Etheriq\Lesson6Bundle\Entity\Branch2 $childrens
+     * @return Branch2
      */
-    public function addChildren(\Etheriq\Lesson6Bundle\Entity\Branch $childrens)
+    public function addChildren(\Etheriq\Lesson6Bundle\Entity\Branch2 $childrens)
     {
         $this->childrens[] = $childrens;
     
@@ -138,9 +140,9 @@ class Branch
     /**
      * Remove childrens
      *
-     * @param \Etheriq\Lesson6Bundle\Entity\Branch $childrens
+     * @param \Etheriq\Lesson6Bundle\Entity\Branch2 $childrens
      */
-    public function removeChildren(\Etheriq\Lesson6Bundle\Entity\Branch $childrens)
+    public function removeChildren(\Etheriq\Lesson6Bundle\Entity\Branch2 $childrens)
     {
         $this->childrens->removeElement($childrens);
     }
@@ -158,10 +160,10 @@ class Branch
     /**
      * Set parent
      *
-     * @param \Etheriq\Lesson6Bundle\Entity\Branch $parent
-     * @return Branch
+     * @param \Etheriq\Lesson6Bundle\Entity\Branch2 $parent
+     * @return Branch2
      */
-    public function setParent(\Etheriq\Lesson6Bundle\Entity\Branch $parent = null)
+    public function setParent(\Etheriq\Lesson6Bundle\Entity\Branch2 $parent = null)
     {
         $this->parent = $parent;
     
@@ -171,7 +173,7 @@ class Branch
     /**
      * Get parent
      *
-     * @return \Etheriq\Lesson6Bundle\Entity\Branch
+     * @return \Etheriq\Lesson6Bundle\Entity\Branch2 
      */
     public function getParent()
     {

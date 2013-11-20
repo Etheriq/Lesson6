@@ -48,15 +48,11 @@ class Topic
      */
     protected $textTopic;
 
-
      /**
      * @ORM\ManyToOne(targetEntity="Branch", inversedBy="topics")
      * @ORM\JoinColumn(name="branch_id", referencedColumnName="id")
      */
     protected $branch;
-
-
-
 
     /**
      * Get id
@@ -176,7 +172,7 @@ class Topic
     /**
      * Get branch
      *
-     * @return \Etheriq\Lesson6Bundle\Entity\Branch 
+     * @return \Etheriq\Lesson6Bundle\Entity\Branch
      */
     public function getBranch()
     {
