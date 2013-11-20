@@ -3,6 +3,9 @@
 {% block body %}
     {{ parent() }}
 
+    {% block info %}
+    {% endblock info %}
+
     <div class="well col-md-8">
         <p><a href="{{ path('etheriq_lesson6_showDb') }}">Назад</a></p>
         <center>Подробности о теме:</center>
