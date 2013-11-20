@@ -1,3 +1,27 @@
+Homework #6
+learn Doctrine
+
+Урок №6 Изучение ORM Doctrine
+
+Подготовка к работе:
+composer update
+doctrine:database:create
+php app/console generate:doctrine:entities Etheriq
+php app/console doctrine:schema:update --force
+Для заполнения БД данными выберите в меню: Doctrine > Внести данные в БД (через модель)
+Потом выберите в меню: Doctrine > Вывести содержимое БД
+
+
+
+
+
+
+
+
+
+
+
+
 Symfony Standard Edition
 ========================
 
