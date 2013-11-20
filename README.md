@@ -1,3 +1,15 @@
+Homework #6
+learn Doctrine
+
+
+
+
+
+
+
+
+
+
 Symfony Standard Edition
 ========================
 
