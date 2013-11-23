@@ -73,7 +73,7 @@ class LoadTopicData extends AbstractFixture implements OrderedFixtureInterface
             $topic->setBranch($this->getReference('idt'));
 
             $manager->persist($topic);
-            //$this->setReference('branch', $topic);
+            //$this->setReference('branch'.$topicItem['branch'], $topic);
         }
 
         $manager->flush();

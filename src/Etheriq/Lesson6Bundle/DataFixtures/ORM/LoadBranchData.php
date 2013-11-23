@@ -69,7 +69,7 @@ class LoadBranchData extends AbstractFixture implements OrderedFixtureInterface
             $branch->setIdBranchTmp($branchItem['idt']);
 
             $manager->persist($branch);
-            $this->setReference('idt', $branch);
+            $this->setReference($branchItem['idt'], $branch);
         }
 
         $manager->flush();
